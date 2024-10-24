@@ -1,27 +1,25 @@
 package org.example.socialmedia.entity;
 
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Entity
+@Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Posts {
-
+@Table(name = "comment")
+public class Comment {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
-    private String title;
-    private String body;
-    private String imageUrl;
-    @OneToMany
-    private List<Comment> comments;
+    private String text;
     @ManyToOne
     private User user;
+
 
 }
