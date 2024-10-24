@@ -6,6 +6,7 @@ import org.example.socialmedia.repository.CommentRepository;
 import org.example.socialmedia.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,10 +19,15 @@ public class CommentService {
     @Autowired
     private PostRepository postRepository;
 
+    @Transactional
     public Comment createComment(Long postId, Comment comment) {
         Post post = postRepository.findById(postId).orElseThrow(() ->new RuntimeException("Post not found" + postId));
         comment.setPost(post);
         return commentRepository.save(comment);
+    }
+    public List<Comment> getComments(Long postId) {
+        Post post = postRepository.findById(postId).orElseThrow(() -> new RuntimeException("Post not found" + postId));
+        return post.getComments();
     }
 
 
