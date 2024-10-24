@@ -52,7 +52,6 @@ public class MyFilter extends OncePerRequestFilter {
             authorization = authorization.substring(7);
             String  username = jwtProvider.getSubject(authorization);
             System.out.println(username);
-//            String username = "auth ichidagi username olinishi kerak!";
             setAuthenticationToContext(username);
         }
 

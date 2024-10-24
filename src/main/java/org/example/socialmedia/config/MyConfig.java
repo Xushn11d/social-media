@@ -49,8 +49,8 @@ public class MyConfig {
                 .authorizeRequests()
                 .requestMatchers(UtilConfig.openPath)
                 .permitAll()
-                .requestMatchers(HttpMethod.POST, "/product")
-                .hasRole("ADMIN")
+                .requestMatchers(HttpMethod.POST, "/auth/**")
+                .hasAuthority("ROLE_USER")
                 .anyRequest()
                 .authenticated();
         return http.build();

@@ -18,6 +18,9 @@ public class Comment {
     private Long id;
     private String text;
     private Boolean isOpen;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "post_id")

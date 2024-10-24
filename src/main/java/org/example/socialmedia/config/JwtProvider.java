@@ -12,9 +12,9 @@ import java.util.Date;
 
 @Component
 public class JwtProvider {
-    @Value("${spring.application.my_token.key}")
+    @Value("${my_token.key}")
     String key;
-    @Value("${spring.application.my_token.expire_time}")
+    @Value("${my_token.expire_time}")
     Long expireTime;
 
     public String generateToken(UserDetails userDetails) {
