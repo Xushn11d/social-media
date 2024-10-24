@@ -17,8 +17,7 @@ public class PostController {
 
     @PostMapping
     public ResponseEntity<Post> createPost(@RequestBody Post post) {
-        Post post1 = Post.builder().title(post.getTitle()).body(post.getBody()).author(post.getAuthor()).build();
-        return ResponseEntity.ok(postService.createPost(post1));
+        return ResponseEntity.ok(postService.createPost(post));
     }
 
     @GetMapping
