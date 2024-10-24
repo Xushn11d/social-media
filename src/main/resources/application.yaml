@@ -4,8 +4,15 @@ spring:
     hibernate:
       ddl-auto: update
   datasource:
-    url: jdbc:postgresql://localhost:5432/test
-    password: root123
+    url: jdbc:postgresql://localhost:5432/social
+    password: Uzbboy12
     username: postgres
   application:
     name: auth-app
+    my_token:
+      key: hereIsMySecretKeyvshdkjfknsfgjfndjf
+      expire_time: 86400000
+    api:
+      version: 5.0
+      eskiz:
+        token:
