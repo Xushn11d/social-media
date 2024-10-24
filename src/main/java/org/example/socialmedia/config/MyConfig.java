@@ -3,7 +3,6 @@ package org.example.socialmedia.config;
 import lombok.RequiredArgsConstructor;
 import org.example.socialmedia.repository.UserRepository;
 import org.example.socialmedia.utils.UtilConfig;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -59,9 +58,7 @@ public class MyConfig {
 
     @Bean
     public UserDetailsService userDetailsService(){
-        UserDetailsService userDetailsService =(username)->
-             userRepository.findByPhoneNumber(username).orElseThrow(() -> new RuntimeException("User not found"));
-
-        return userDetailsService;
+        return (username)->
+                (org.springframework.security.core.userdetails.UserDetails) userRepository.findByPhoneNumber(username).orElseThrow(() -> new RuntimeException("User not found") );
     }
 }
