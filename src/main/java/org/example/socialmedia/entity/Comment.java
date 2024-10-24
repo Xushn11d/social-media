@@ -12,14 +12,14 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "comment")
 public class Comment {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String text;
+    private Boolean isOpen;
+
     @ManyToOne
-    private User user;
-
-
+    @JoinColumn(name = "post_id")
+    private Post post;
 }
