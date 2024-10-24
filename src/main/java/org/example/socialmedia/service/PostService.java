@@ -2,16 +2,17 @@ package org.example.socialmedia.service;
 
 import org.example.socialmedia.entity.Post;
 import org.example.socialmedia.repository.PostRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class PostService {
-    private final PostRepository postRepository;
-    public PostService(PostRepository postRepository) {
-        this.postRepository = postRepository;
-    }
+
+    @Autowired
+    private PostRepository postRepository;
+
 
    public Post createPost(Post post) {
         return postRepository.save(post);
