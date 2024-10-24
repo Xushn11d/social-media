@@ -22,7 +22,7 @@ public class Post {
     private String body;
     private String imageUrl;
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private List<Comment> comments = new ArrayList<>();
 
     @ManyToOne
